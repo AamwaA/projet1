@@ -31,40 +31,38 @@ while force > 50:
         print("Un chiffre cohérent svp...")
 
 print("Vous voulez maintenant combattre un ennemi")
-dv_ennemi = input("c'est tout à votre honneur, mais sur une échelle de 1 à 4 comment estimez une menace a votre mesure!")
-dv_ennemi = random.randrange(50, 100, 5) * int(dv_ennemi)
-print("très bien ! vous allez donc vous battre contre un ennemi à " + str(dv_ennemi) + " points de vie.") 
+dv_ennemi = int(input("c'est tout à votre honneur, mais sur une échelle de 1 à 4 comment estimez une menace a votre mesure!"))
+pv_ennemi = random.randrange(50, 100, 5) * dv_ennemi
+print("très bien ! vous allez donc vous battre contre un ennemi à " + str(pv_ennemi) + " points de vie.") 
 
-force_ennemi = 50
+force_ennemi = 20
 
 # faire une boucle pour baisser les points de vie
 # faire une boucle pour utiliser des potions
 # faire une condition de victoire et de défaite
 
-coup = int(force_ennemi) + int(dv_ennemi)
+coup = force_ennemi * dv_ennemi
+dv_perdus = 0
 
-pv_restant = int(dv_ennemi) - int(force)
-
-
-print("Que voulez vous faire?")
-print(" 1 - attaquer")
-print(" 2 - bloquer")
-print(" 3 - fuir")
-choice = input("Saisissez votre choix")
-if choice == '1':
-    pv_restant = int(dv_ennemi) - int(force)
-    print("il reste " + str(pv_restant) + " points de vie à l'ennemi")
-while pv_restant > 0:
-    pv_restant = pv_restant - force
-    print("il reste " + str(pv_restant) + " pv restant à l'annemi.")
-    for pv_restant in [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]:
-        pv = pv - coup
-    print("il vous reste " + str(pv) + " points de vie")
+while pv_ennemi > 0:
+    print("Que voulez vous faire?")
+    print(" 1 - attaquer")
+    print(" 2 - bloquer")
+    print(" 3 - fuir")
+    choice = input("Saisissez votre choix")
+    if choice == '1':
+        pv_ennemi -= force
+        dv_perdus += force
+        print("il reste " + str(pv_ennemi) + " points de vie à l'ennemi")
+        if dv_perdus >= 20:
+            dv_perdus = 0
+            pv -= coup
+            print("l'ennemi attaque, il vous reste" + str(pv) + " points de vie")
     if pv <= 0:
+        print("Vous êtes mort")
         break
-    print("Vous êtes mort")
-if pv_restant <= 0:
-    print("vous avez vaincu votre ennemi")
+    if pv_ennemi <= 0:
+        print("vous avez vaincu votre ennemi")
 
 
 '''print("Que voulez vous faire?")
