@@ -66,6 +66,7 @@ while pv_restant > 0:
 if pv_restant <= 0:
     print("vous avez vaincu votre ennemi")
 
+modification
 
 '''print("Que voulez vous faire?")
 print(" 1 - boire une potion")
