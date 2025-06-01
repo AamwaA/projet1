@@ -33,16 +33,14 @@ while force > 100:
 '''dv_ennemi = {"gobelin": 1, "orc": 2, "troll": 3, "géant": 4}
 
 print("Vous voulez maintenant combattre un ennemi")
-dv_ennemi = str(input("c'est tout à votre honneur, vous pouvez choisir entre un gobelin, un orc, un troll ou un géant. lequel vous semble a votre mesure?"))
-pv_ennemi = random.randrange(50, 100, 5) * int(dv_ennemi)
-print("très bien ! vous allez donc vous battre contre un " + str(dv_ennemi) + " ,un ennemi à " + int(pv_ennemi) + " points de vie.") '''
-
-pv_ennemi = 200
+dv_ennemi = input("c'est tout à votre honneur, vous pouvez choisir entre un gobelin, un orc, un troll ou un géant. lequel vous semble a votre mesure?")
+pv_ennemi = random.randrange(50, 100, 5) * dv_ennemi.get(input)
+print("très bien ! vous allez donc vous battre contre un " + str(dv_ennemi) + " ,un ennemi à " + int(pv_ennemi) + " points de vie.")'''
 
 force_ennemi = 20
 
-# faire une boucle pour baisser les points de vie
-# faire une boucle pour utiliser des potions
+pv_ennemi = 200
+
 # faire une condition de victoire et de défaite
 
 coup = force_ennemi * 1 #dv_ennemi
@@ -79,9 +77,9 @@ while pv_ennemi <= 0:
     choice = input("Saisissez votre choix")
     if choice == '1':
         pv += pv_potion
-    if pv < 100:
-        pv = 100
-    print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pv) + ".")
+        if pv < 100:
+            pv = 100
+        print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pv) + ".")
     if choice == '2':
         loot = random.choice(loot_ennemi)
         print("vous avez récupérer sur votre ennemi une " + str(loot) + ".")
