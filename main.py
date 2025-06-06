@@ -22,17 +22,15 @@ for choix in race.keys():
 print("les nains ont plus de point de vie, mais les elfes infligent plus de dégats")
 print("les humains quand à eux, sont un bon entre deux")
 
+prompt = "Race?"
 for choix, dv in race.items():
-    prompt = "Race?"
     result = input(prompt)
-    if result == str(type):
+    if result == str(choix):
         pvj = dv * 50
         forcej = (10 - dv) * 10
 print("en tant que " + result + ", vous avez " + str(pvj) + " points de vie et " + str(forcej) + " en force.")
 print("vous êtes de niveau " + str(niveau))
 
-
-# finir le calcul des pv et de la force de départ
 
 potion = random.randrange(2, 6, 1)
 pv_potion = 50
@@ -43,10 +41,16 @@ monstres = {"gobelin": 1, "orc": 2, "troll": 3, "géant": 4}
 
 pv_ennemi = 0
 force_ennemi = 0
-            
+
+
+print("Vous voulez maintenant combattre un ennemi")
+print("c'est tout à votre honneur, vous pouvez choisir parmis les monstres suivants:")
+print("lequel vous semble a votre mesure?")
+for type in monstres.keys():
+    prompt = "monstre?"            
 for type, fp in monstres.items():
-    print("Vous voulez maintenant combattre un ennemi")
-    if type == input("c'est tout à votre honneur, vous pouvez choisir entre un gobelin, un orc, un troll ou un géant. lequel vous semble a votre mesure?"):
+    result = input(prompt)
+    if result == str(type):
         pv_ennemi = fp * 100
         force_ennemi = fp * 5
     print("très bien ! vous allez donc vous battre contre un " + str(type) + " ,un ennemi à " + str(pv_ennemi) + " points de vie.")
