@@ -6,29 +6,68 @@ nom = input("Quel est votre nom champion?")
 
 print("Enchanté " + nom + "! " + " Très joli nom.")
 
-race = {"humain": 5, "nain": 7, "elfe": 3}
+# Cette fonction verifie que le choix entré par le joueur correspond a une des possibilités envisagées
+def verifChoix(prompt, liste, errorMessage="réessayez"):
+    while True:
+        choix = input(prompt)
+        if choix in liste:
+            return choix
+        else:
+            print(errorMessage)
+
+raceJouable = {
+    "humain": {
+        "pv": 0,
+        "force": 0,
+        "dv": 5,
+    }, 
+    "nain": {
+        "dv": 7
+    }, 
+    "elfe": {
+        "dv": 3
+    }
+}
 
 exp = 10
 niveau = math.floor(exp/10)
 
-for dv in race.values():
+# def chiffreCreeDict(chiffre):
+#     dictionnaire = {
+#         "première clé": chiffre * 2,
+#         "deuxième clé": chiffre + 1
+#     }
+#     return dictionnaire
+
+# exemple = chiffreCreeDict(4)
+
+# pleinDExemples = {
+#     'humain' : chiffreCreeDict(1),
+#     'elfe' : chiffreCreeDict(2),
+#     'nain' : chiffreCreeDict(3)
+# }
+
+for key, value in raceJouable.items():
+    dv = value.get("dv")
     pvj = dv*50*niveau
     forcej = (10-dv)*niveau
+    value['force'] = forcej
+    value['pv'] = pvj
+
+
+
 
 print("il y a trois race dans notre monde")
 print("vous avez le choix de jouer :")
-for choix in race.keys():
+for choix in raceJouable.keys():
     print(choix)
 print("les nains ont plus de point de vie, mais les elfes infligent plus de dégats")
 print("les humains quand à eux, sont un bon entre deux")
 
 prompt = "Race?"
-for choix, dv in race.items():
-    result = input(prompt)
-    if result == str(choix):
-        pvj = dv * 50
-        forcej = (10 - dv) * 10
-print("en tant que " + result + ", vous avez " + str(pvj) + " points de vie et " + str(forcej) + " en force.")
+result = verifChoix(prompt, raceJouable, "choisissez une race parmis la liste")
+raceChoisie = raceJouable[result]
+print("en tant que " + result + ", vous avez " + str(raceChoisie["pv"]) + " points de vie et " + str(raceChoisie["force"]) + " en force.")
 print("vous êtes de niveau " + str(niveau))
 
 
@@ -95,7 +134,7 @@ while pv_ennemi <= 0:
     choice = input("Saisissez votre choix")
     if choice == '1':
         pvj += pv_potion
-        for type, value in race.items():
+        for type, value in raceJouable.items():
             if pvj > 100:
                 pvj = 100
         print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pvj) + ".")
