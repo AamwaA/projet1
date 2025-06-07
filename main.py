@@ -53,7 +53,8 @@ for type, fp in monstres.items():
     if result == str(type):
         pv_ennemi = fp * 100
         force_ennemi = fp * 5
-    print("très bien ! vous allez donc vous battre contre un " + str(type) + " ,un ennemi à " + str(pv_ennemi) + " points de vie.")
+        print("très bien ! vous allez donc vous battre contre un " + str(type) + " ,un ennemi à " + str(pv_ennemi) + " points de vie.")
+        break
 
 coup = force_ennemi
 dv_perdus = 0
@@ -70,12 +71,12 @@ while pv_ennemi > 0:
         if dv_perdus >= pv_ennemi/10:
             dv_perdus = 0
             pvj -= coup
-            print("l'ennemi attaque, il vous reste" + str(pv) + " points de vie")
+            print("l'ennemi attaque, il vous reste" + str(pvj) + " points de vie")
     if choice == '1':
         pvj += pv_potion
     if pvj > 100:
         pvj = 100
-    print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pv) + ".")
+    print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pvj) + ".")
     if pvj <= 0:
         print("Vous êtes mort")
         break
@@ -93,10 +94,11 @@ while pv_ennemi <= 0:
     print(" 3 - partir d'ici")
     choice = input("Saisissez votre choix")
     if choice == '1':
-        pv += pv_potion
-        if pv > 100:
-            pv = 100
-        print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pv) + ".")
+        pvj += pv_potion
+        for type, value in race.items():
+            if pvj > 100:
+                pvj = 100
+        print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pvj) + ".")
     if choice == '2':
         loot = random.choice(loot_ennemi)
         print("vous avez récupérer sur votre ennemi une " + str(loot) + ".")
