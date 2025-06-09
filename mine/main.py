@@ -1,16 +1,23 @@
 import random
 
+def choisisseurDeMine(chiffre):
+    ore = {
+        "pierre": chiffre*1, 
+        "charbon": chiffre*2, 
+        "cristal": chiffre*5, 
+        "fer": chiffre*15, 
+        "bronze": chiffre*30, 
+        "argent": chiffre*50, 
+        "or": chiffre*100
+}
+    return ore
 
-ore = {
-    "pierre": 1, 
-    "charbon": 2, 
-    "cristal": 5, 
-    "fer": 15, 
-    "bronze": 30, 
-    "argent": 50, 
-    "or": 100
+mines = {
+    'mine de pierre' : choisisseurDeMine(1),
+    'mine de charbon' : choisisseurDeMine(2),
+    'mine de fer' : choisisseurDeMine(3)
 }
 
-pioche = random.choices(population=type, cum_weights=[50, 25, 10, 7, 4, 3, 1], k=7)
+for type in mines.keys():
+    print(type)
 
-print(pioche)

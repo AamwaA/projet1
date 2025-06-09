@@ -22,9 +22,13 @@ raceJouable = {
         "dv": 5,
     }, 
     "nain": {
+        "pv": 0,
+        "force": 0,
         "dv": 7
     }, 
     "elfe": {
+        "pv": 0,
+        "force": 0,
         "dv": 3
     }
 }
@@ -76,27 +80,53 @@ pv_potion = 50
 
 print("C'est déjà bien et comme je suis sympa je vais vous donner " + str(potion) + " potions de soin.")
 
-monstres = {"gobelin": 1, "orc": 2, "troll": 3, "géant": 4}
+monstres = {
+    "gobelin": {
+        "pv": 0,
+        "force": 0,
+        "fp": 1,
+        },
+    "orc": {
+        "pv": 0,
+        "force": 0,
+        "fp": 2,
+        },
+    "troll": {
+        "pv": 0,
+        "force": 0,
+        "fp": 3,
+        }, 
+    "géant": {
+        "pv": 0,
+        "force": 0,
+        "fp": 4,
+        } 
+}
 
-pv_ennemi = 0
-force_ennemi = 0
-
+for key, value in monstres.items():
+    fp = value.get("fp")
+    pv_ennemi = fp*50*niveau
+    force_ennemi = (10-fp)*niveau
+    value['force'] = force_ennemi
+    value['pv'] = pv_ennemi
 
 print("Vous voulez maintenant combattre un ennemi")
-print("c'est tout à votre honneur, vous pouvez choisir parmis les monstres suivants:")
-print("lequel vous semble a votre mesure?")
-for type in monstres.keys():
-    prompt = "monstre?"            
-for type, fp in monstres.items():
-    result = input(prompt)
-    if result == str(type):
-        pv_ennemi = fp * 100
-        force_ennemi = fp * 5
-        print("très bien ! vous allez donc vous battre contre un " + str(type) + " ,un ennemi à " + str(pv_ennemi) + " points de vie.")
-        break
+print("c'est tout à votre honneur")
+print("quelle est la menace a votre mesure?")
+print("vous pouvez affronter l'un des ennemis suivant, mais gare à vous si vous vous montrez trop hardi...")
+for choix in monstres.keys():
+    print(choix)
+
+prompt = "monstre?"            
+result = verifChoix(prompt, monstres, "choisissez un enemi valide")
+ennemiChoisit = monstres[result]
+print("très bien ! vous allez donc vous battre contre un " + str(monstres[result]) + ".")
+print("Un ennemi avec " + str(ennemiChoisit["pv"]) + " points de vie et " + str(ennemiChoisit["force"]) + " en force.")
 
 coup = force_ennemi
 dv_perdus = 0
+
+def combat()
 
 while pv_ennemi > 0:
     print("Que voulez vous faire?")
