@@ -68,3 +68,6 @@ print("Choisissez la mine où vous souhaitez vous rendre:")
 prompt = "type de mines"
 mineChoisie = verifChoix(prompt, mines, "choisissez le numéro de la mine")
 
+print(mines)
+print(mineChoisie)
+
