@@ -45,7 +45,7 @@ def jourDeVente(stock):
 
 print(etal)
 '''
-
+# pour l'instant, on fabrique une liste avec une suite d'append, mais elle ne sort qu'un seul type du dictionnaire
 etal.append(random.choice([type]))
 etal.append([type])
 etal.append([type])
