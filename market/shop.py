@@ -19,7 +19,7 @@ stock = {
     },
     "épée": {
     "prix": 15,
-    "quantité": 3,
+    "quantité": 5,
     "coût": 8,
     },
 }
@@ -61,6 +61,8 @@ print(chiffreAffaire)
 print("La journée s'est bien déroulé, vous avez vendu toutes vos marchandises et vous avez gagné " + str(chiffreAffaire) + " pièces d'or")
 print("la ville où vous faites vos ventes prend une comission de 10 pour cent de vos ventes quotidiennes")
 
+stock["épée"]["quantité"] -= len(etal)
+
 taxes = chiffreAffaire * 0.1
 benefices = chiffreAffaire - taxes
 gold += benefices
@@ -68,18 +70,14 @@ gold += benefices
 print("après avoir payé les gardes de la ville, vos bénéfices direct sont de " + str(benefices) + "pièces d'or.")
 print("vous avez donc en votre possession " + str(gold) + " pièces d'or.")
 
-'''
-test
-stock["hache"]["quantité"] -= etal
+print("après avoir fait l'inventaire de votre stock, vous notez qu'il vous reste " + str(stock["épée"]["quantité"]) + " hache à vendre")
 
-print("après avoir fait l'inventaire de votre stock, vous notez qu'il vous reste " + str(stock["hache"]["quantité"]) + " hache à vendre")
-
-materiaux = 5
-production = materiaux * 3
+production = stock["épée"]["coût"]
 gold -= production
-stock["hache"]["quantité"] += 3
+stock["épée"]["quantité"] += 3
 
 print("Vous passez la nuit à refaire vos stock pour la journée du lendemain.")
 print("après déduction du couts de vos matériaux qui s'élèvent à " + str(production) + " pièces d'or")
-print(" vous avez été en mesure de fabriquer " + str(stock["hache"]["quantité"]) + " hache à remettre dans vos réserves")
-'''
+print(" vous avez été en mesure de fabriquer " + str(stock["épée"]["quantité"]) + " armes à remettre dans vos réserves")
+
+print(stock)
