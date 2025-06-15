@@ -81,3 +81,4 @@ print("après déduction du couts de vos matériaux qui s'élèvent à " + str(p
 print(" vous avez été en mesure de fabriquer " + str(stock["épée"]["quantité"]) + " armes à remettre dans vos réserves")
 
 print(stock)
+print(etal)
