@@ -48,23 +48,46 @@ def choisisseurDeMine(rateMine):
 }
     return ore
 
+mineurs = 0
+
+
+
 mines = {
-    '1 - mine de pierre' : choisisseurDeMine(1),
-    '2 - mine de charbon' : choisisseurDeMine(2),
-    '3 - mine de fer' : choisisseurDeMine(3)
+    '1' : choisisseurDeMine(1),
+    '2' : choisisseurDeMine(2),
+    '3' : choisisseurDeMine(3)
 }
 
-def mineur(nombre, coups):
-    while True:
-        choix = input(nombre)
-        coups = nombre * (5-mines[mineChoisie])
-        return coups
-
-
-for type in mines.keys():
-    print(type)
+chariot = []
 
 print("Choisissez la mine où vous souhaitez vous rendre:")
-prompt = "type de mines"
+print("1 - mine de pierre")
+print("2 - mine de charbon")
+print("3 - mine de fer")
+prompt = "type de mines? "
 mineChoisie = verifChoix(prompt, mines, "choisissez le numéro de la mine")
+
+print(mines[mineChoisie])
+
+prompt = input("combien de mineurs voulez-vous engager?")
+mineurs = int(prompt)
+coupDePioche = 3 * mineurs
+
+print("vous avez donc avec vous " + str(mineurs) + " mineurs (des nains sans doute)")
+print("Ils donneront chacun " + str(coupDePioche) + "coup de pioches (mais des coups efficaces)")
+
+def heHo(prompt):
+    mineursengagés = prompt
+    chariot = []
+    for i in range(mineursengagés):
+        chariot.append(random.choices(list(mines[mineChoisie]))) * coupDePioche
+    return chariot
+
+
+prompt = input("combien de mineurs envoyez vous au travail aujourd'hui?")
+heHo(int(prompt))
+
+print(chariot)
+
+
 
