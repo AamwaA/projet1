@@ -81,7 +81,6 @@ def heHo(mineurs, dicMine):
     poids = [1 / dicMine[ore]['rareté'] for ore in minerais]
     total = sum(poids)
     rarepicks = [p / total for p in poids]
-
     chariot = random.choices(minerais, weights=rarepicks, k=coupDePioche)
     return chariot
 

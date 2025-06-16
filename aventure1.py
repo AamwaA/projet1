@@ -33,23 +33,8 @@ raceJouable = {
     }
 }
 
-exp = 10
+exp = 50
 niveau = math.floor(exp/10)
-
-# def chiffreCreeDict(chiffre):
-#     dictionnaire = {
-#         "première clé": chiffre * 2,
-#         "deuxième clé": chiffre + 1
-#     }
-#     return dictionnaire
-
-# exemple = chiffreCreeDict(4)
-
-# pleinDExemples = {
-#     'humain' : chiffreCreeDict(1),
-#     'elfe' : chiffreCreeDict(2),
-#     'nain' : chiffreCreeDict(3)
-# }
 
 for key, value in raceJouable.items():
     dv = value.get("dv")
@@ -104,7 +89,7 @@ monstres = {
 for key, value in monstres.items():
     fp = value.get("fp")
     pv_ennemi = fp*50*niveau
-    force_ennemi = (10-fp)*niveau
+    force_ennemi = fp*niveau
     value['force'] = force_ennemi
     value['pv'] = pv_ennemi
 
@@ -118,7 +103,7 @@ for choix in monstres.keys():
 prompt = "monstre?"            
 result = verifChoix(prompt, monstres, "choisissez un enemi valide")
 ennemiChoisit = monstres[result]
-print("très bien ! vous allez donc vous battre contre un " + str(monstres[result]) + ".")
+print("très bien ! vous allez donc vous battre contre un " + str(ennemiChoisit) + ".")
 print("Un ennemi avec " + str(ennemiChoisit["pv"]) + " points de vie et " + str(ennemiChoisit["force"]) + " en force.")
 
 coup = force_ennemi
@@ -138,9 +123,11 @@ while pv_ennemi > 0:
             pvj -= coup
             print("l'ennemi attaque, il vous reste" + str(pvj) + " points de vie")
     if choice == '2':
+        if potion == 0:
+            print("vous n'avez plus de potion")
+            pass
         pvj += pv_potion
-    if pvj > 100:
-        pvj = 100
+        potion -= 1
         print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pvj) + ".")
     if pvj <= 0:
         print("Vous êtes mort")
@@ -151,6 +138,8 @@ while pv_ennemi > 0:
 
 pv_potion = random.randrange(10, 101, 10)
 loot_ennemi = ("hache", "épée", "armure", "bourse")
+
+inventaire = []
 
 while pv_ennemi <= 0:
     print("Que voulez vous faire?")
@@ -166,10 +155,12 @@ while pv_ennemi <= 0:
         print("vous avez récupéré " + str(pv_potion) + " points de vie. vous en avez désormais " + str(pvj) + ".")
     if choice == '2':
         loot = random.choice(loot_ennemi)
+        inventaire.append(loot)
         print("vous avez récupérer sur votre ennemi une " + str(loot) + ".")
     if choice == '3':
         pv_ennemi = 200
         print("vous décidez de quitter la pièce")
 
+print(inventaire)
 
 

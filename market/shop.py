@@ -76,3 +76,4 @@ stock["épée"]["quantité"] += 3
 print("Vous passez la nuit à refaire vos stock pour la journée du lendemain.")
 print("après déduction du couts de vos matériaux qui s'élèvent à " + str(production) + " pièces d'or")
 print(" vous avez été en mesure de fabriquer " + str(stock["épée"]["quantité"]) + " armes à remettre dans vos réserves")
+
