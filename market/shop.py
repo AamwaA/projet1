@@ -7,7 +7,7 @@ gold = 10
 lingotAcier = 5
 
 stock = {
-    "hache": {
+    "épée": {
     "prix": 10,
     "quantité": 4,
     "coût": 5,
@@ -17,7 +17,7 @@ stock = {
     "quantité": 5,
     "coût": 2,
     },
-    "épée": {
+    "hache": {
     "prix": 15,
     "quantité": 5,
     "coût": 8,
@@ -46,13 +46,10 @@ def jourDeVente(stock):
 print(etal)
 '''
 # pour l'instant, on fabrique une liste avec une suite d'append, mais elle ne sort qu'un seul type du dictionnaire
-etal.append(random.choice([type]))
-etal.append([type])
-etal.append([type])
-etal.append([type])
-etal.append([type])
+
+etal = random.choices(list(stock.keys()), k=5)
+
 print(etal)
-print(len(etal))
 
 chiffreAffaire = len(etal) * stock[type]["prix"]
 
@@ -79,6 +76,3 @@ stock["épée"]["quantité"] += 3
 print("Vous passez la nuit à refaire vos stock pour la journée du lendemain.")
 print("après déduction du couts de vos matériaux qui s'élèvent à " + str(production) + " pièces d'or")
 print(" vous avez été en mesure de fabriquer " + str(stock["épée"]["quantité"]) + " armes à remettre dans vos réserves")
-
-print(stock)
-print(etal)

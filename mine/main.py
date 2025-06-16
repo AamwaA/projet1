@@ -70,24 +70,21 @@ mineChoisie = verifChoix(prompt, mines, "choisissez le numéro de la mine")
 print(mines[mineChoisie])
 
 prompt = input("combien de mineurs voulez-vous engager?")
-mineurs = int(prompt)
-coupDePioche = 3 * mineurs
+équipe = int(prompt)
 
-print("vous avez donc avec vous " + str(mineurs) + " mineurs (des nains sans doute)")
-print("Ils donneront chacun " + str(coupDePioche) + "coup de pioches (mais des coups efficaces)")
 
-def heHo(prompt):
-    mineursengagés = prompt
-    chariot = []
-    for i in range(mineursengagés):
-        chariot.append(random.choices(list(mines[mineChoisie]))) * coupDePioche
+print("vous avez donc avec vous " + str(équipe) + " mineurs (des nains sans doute)")
+
+def heHo(mineurs, dicMine):
+    coupDePioche = 3 * mineurs
+    minerais = list(dicMine.keys())
+    poids = [1 / dicMine[ore]['rareté'] for ore in minerais]
+    total = sum(poids)
+    rarepicks = [p / total for p in poids]
+
+    chariot = random.choices(minerais, weights=rarepicks, k=coupDePioche)
     return chariot
 
-
-prompt = input("combien de mineurs envoyez vous au travail aujourd'hui?")
-heHo(int(prompt))
-
+chariot = heHo(équipe, mines[mineChoisie])
+print("Voici le contenu du chariot extrait :")
 print(chariot)
-
-
-
