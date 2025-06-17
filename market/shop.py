@@ -58,7 +58,7 @@ print(chiffreAffaire)
 print("La journée s'est bien déroulé, vous avez vendu toutes vos marchandises et vous avez gagné " + str(chiffreAffaire) + " pièces d'or")
 print("la ville où vous faites vos ventes prend une comission de 10 pour cent de vos ventes quotidiennes")
 
-stock["épée"]["quantité"] -= len(etal)
+stock[type]["quantité"] -= 5
 
 taxes = chiffreAffaire * 0.1
 benefices = chiffreAffaire - taxes
@@ -69,11 +69,12 @@ print("vous avez donc en votre possession " + str(gold) + " pièces d'or.")
 
 print("après avoir fait l'inventaire de votre stock, vous notez qu'il vous reste " + str(stock["épée"]["quantité"]) + " hache à vendre")
 
-production = stock["épée"]["coût"]
+production = stock[type]["coût"]
 gold -= production
-stock["épée"]["quantité"] += 3
+stock[type]["quantité"] += production
 
 print("Vous passez la nuit à refaire vos stock pour la journée du lendemain.")
 print("après déduction du couts de vos matériaux qui s'élèvent à " + str(production) + " pièces d'or")
-print(" vous avez été en mesure de fabriquer " + str(stock["épée"]["quantité"]) + " armes à remettre dans vos réserves")
+print(" vous avez été en mesure de fabriquer " + str(stock[type]["quantité"]) + " armes à remettre dans vos réserves")
 
+print(stock)
