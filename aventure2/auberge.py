@@ -25,14 +25,14 @@ aventurier = {
         3,
     }}
 
-def Genaventurier():
-    race = random.choice[aventurier]["race"]
-    niveau = random.choice[aventurier]["niveau"]
-    nuites = random.choice(aventurier["nuités"])
+def Genaventurier(dicAv):
+    race = random.choice(dicAv["race"])
+    niveau = random.choice(dicAv["niveau"])
+    nuites = random.choice(dicAv["nuités"])
     pnj = list(race, niveau, nuites)
     return pnj
 
-Genaventurier()
+Genaventurier(aventurier)
 
 print("Une passe derrière votre fenêtre,")
 print("La porte s'ouvre dans un grincement strident")
