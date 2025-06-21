@@ -57,11 +57,11 @@ choix1 = input("Que fais-tu ? (1/2/3) ")
 
 if choix1 == "1":
     if "clé magnétique Alpha" in joueur["inventaire"]:
-        print("La clé magnétique est reconnue. La porte s’ouvre avec un *bip*.")
+        print("La clé magnétique est reconnue. La porte s'ouvre avec un *bip*.")
         utiliser_energie(joueur, 10)
         print(f"l'action t'as couté de l'energie, il t'en reste: {joueur['energie']}")
     else:
-        print("Tu n’as pas de clé magnétique.")
+        print("Tu n'as pas de clé magnétique.")
 elif choix1 == "2":
     print("Tu essaies de forcer la porte...")
     utiliser_energie(joueur, 30)
@@ -102,12 +102,12 @@ while porte_beta == False:
         print(f"l'action t'as couté de l'energie, il t'en reste: {joueur['energie']}")
     elif choix2== "3":
         if "clé magnétique Beta" in joueur["inventaire"]:
-            print("La clé magnétique est reconnue. La porte s’ouvre avec un *bip*.")
+            print("La clé magnétique est reconnue. La porte s'ouvre avec un *bip*.")
             utiliser_energie(joueur, 10)
             print(f"l'action t'as couté de l'energie, il t'en reste: {joueur['energie']}")
             porte_beta = True
         else:
-            print("Tu n’as pas de clé magnétique.")
+            print("Tu n'as pas de clé magnétique.")
 
 afficher_statut(joueur)
 print("tu arrives dans le module Beta")
