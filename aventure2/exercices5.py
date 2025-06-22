@@ -23,7 +23,7 @@ joueur = Personnage(
     energie=100,
     degats=30,
     inventaire=["clé magnétique Alpha", "analyseur biologique", "module de soin"]
-)vsdlkns
+)
 
 joueur.afficher_statut()
     
