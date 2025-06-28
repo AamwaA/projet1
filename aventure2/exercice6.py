@@ -16,33 +16,32 @@ class Tache:
             self.priorite = nouvelle_priorite
         else:
             print("Erreur : la priorité doit être un nombre entre 1 et 5.")
-
-taches = [Tache("coder", 4, "en cours"), Tache("menage", 3, "à faire"), Tache("travail", 5, "terminé")]
-
-for t in taches:
-    t.afficher()
-
-choix = input("Quelle tâche voulez vous modifier.")
-for t in taches:
-    if choix == t.titre:
-        choix2 = input("voulez modifier le statut(1) ou la priorité(2) ou les deux(3)?")
-
-        if choix2 == "1":
-            nouveau_statut = input("entrez un nouveau statut:")
-            t.changer_statut(nouveau_statut)
+    
+class Carnet:
+    def __init__(self):
+            self.taches = []
         
-        if choix2 == "2":
-            nouvelle_priorité = int(input("Entrez une nouvelle priorité : "))
-            t.changer_priorite(nouvelle_priorité)
+    def ajouter_taches(self, tache):
+            self.taches.append(tache)
         
-        if choix2 == "3":
-            nouveau_statut = input("entrez un nouveau statut:")
-            t.changer_statut(nouveau_statut)
-            nouvelle_priorité = int(input("Entrez une nouvelle priorité : "))
-            t.changer_priorite(nouvelle_priorité)   
+    def supprimer_taches(self, tache):
+            self.taches.remove(tache)
+        
+    def afficher_toutes(self):
+            for t in self.taches:
+                t.afficher()
+        
+    def rechercher_tache(self, tache):
+            if tache in self.taches:
+                print(tache)
 
-for t in taches:
-    t.afficher()
 
 
+carnet = Carnet()
+carnet.ajouter_taches(Tache("manger", 5, "à venir"))
+carnet.ajouter_taches(Tache("ménage", 4, "à faire"))
+carnet.ajouter_taches(Tache("coder", 3, "en cours"))
 
+carnet.afficher_toutes()
+
+carnet.rechercher_tache("manger")

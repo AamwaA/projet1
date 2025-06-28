@@ -17,12 +17,33 @@ frénésie = True
 chasseAuSang = False
 nuitNoire = False
 
-personnage = {
-    "pv" : 50,
-    "vitae" : 15,
-    "force" : 5,
-    "inventaire" : [] 
-}
+class Vampire:
+    def __init__(self, nom, PS, pv, vitae, force, inventaire):
+        self.nom = nom
+        self.PS = PS
+        self.pv = pv
+        self.vitae = vitae
+        self.force = force
+        self.inventaire = inventaire
+    
+    for key, value in Vampire.items():
+    PS = value.get("PS")
+    pv = 
+    force = fp*niveau
+    
+    def creer_vamp(self, nom, PS):
+        print(f"un {nom} apparait")
+        
+
+class Meute:
+    def __init__(self):
+        self.vampires = []
+    
+    def ajouter
+
+
+def se_deplacer(direction):
+    
 
 # fonction afficher statut
 # fonction pour se déplacer
