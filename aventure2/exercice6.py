@@ -46,7 +46,6 @@ carnet.ajouter_taches(Tache("ménage", 4, "à faire"))
 carnet.ajouter_taches(Tache("coder", 3, "en cours"))
 
 
-
 while not carnet_vide:
     print("================================")
     print("1 - consulter les tâches")
