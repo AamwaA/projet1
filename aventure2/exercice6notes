@@ -27,3 +27,16 @@ for t in taches:
     t.afficher()
 
 '''
+
+while not carnet_vide:
+    print("Pour partir, tapez 'terminé'")
+    choix = input("Quelle tâche voulez-vous consulter ? ")
+
+    if choix == "terminé":
+        carnet_vide = True
+    else:
+        tache = carnet.rechercher_par_titre(choix)
+        if tache:
+            tache.afficher()
+        else:
+            print("Tâche non trouvée.")
