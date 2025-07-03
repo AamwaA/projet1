@@ -11,14 +11,14 @@ class Joueur:
         self.pv -= 1
         print(f"il vous reste {self.pv} chance")
         
-    def verifChoix(prompt, liste, errorMessage="réessayez"):
+    def safeInput(prompt, errorMessage="réessayez"):
         while True:
             choix = input(prompt)
-            if choix in liste:
+            if choix is len(1):
                 return choix
             else:
                 print(errorMessage)
-    
+
 joueur = Joueur("joueur", 5)
 
 

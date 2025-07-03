@@ -19,8 +19,9 @@ print(f"vous avez choisit un mot de {len(mot)} lettres")
 motjoueur = []
 
 while motjoueur is not len(mot):
-    ltr = input("quelle lettre?")
-    if ltr in mot:
+    choix = "quelle lettre?"
+    ltr = joueur.safeInput(choix)
+    if str(ltr) in mot:
         print(ltr)
         motjoueur.append(ltr)
         print(motjoueur)
