@@ -1,5 +1,6 @@
 import random
 from names import names
+from utilitaire import joueur
 
 print("difficulté: facile(1), moyenne(2), difficile(3)")
 choixdif = input("quelle difficulté?")
@@ -13,10 +14,22 @@ if choixdif == "3":
 
 print(mot)
 
-for lettre in mot:
+print(f"vous avez choisit un mot de {len(mot)} lettres")
+
+motjoueur = []
+
+while motjoueur is not len(mot):
     ltr = input("quelle lettre?")
     if ltr in mot:
         print(ltr)
+        motjoueur.append(ltr)
+        print(motjoueur)
     else:
         print("cette lettre n'est pas dans le mot")
+        joueur.pvrestant()
+        if joueur.pv == 0:
+            print("vous n'avez pas trouvé le mot")
+            print("vous êtes mort pendu")
+            break
+    
     
