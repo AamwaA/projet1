@@ -18,10 +18,9 @@ print(f"vous avez choisit un mot de {len(mot)} lettres")
 
 motjoueur = []
 
-while motjoueur is not len(mot):
-    choix = "quelle lettre?"
-    ltr = joueur.safeInput(choix)
-    if str(ltr) in mot:
+while str(motjoueur) is not len(mot):
+    ltr = input("quelle lettre?")
+    if ltr in mot:
         print(ltr)
         motjoueur.append(ltr)
         print(motjoueur)
@@ -32,5 +31,4 @@ while motjoueur is not len(mot):
             print("vous n'avez pas trouvé le mot")
             print("vous êtes mort pendu")
             break
-    
     
