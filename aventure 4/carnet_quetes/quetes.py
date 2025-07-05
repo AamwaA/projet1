@@ -1,3 +1,5 @@
+from joueur import joueur1
+
 class Quete:
     def __init__(self, titre, recompense):
         self.titre = str(titre)
@@ -10,6 +12,7 @@ class Quete:
 
     def __str__(self):
         return f"{self.titre} - Récompense : {self.recompense} or - Terminée : {'Oui' if self.est_terminee else 'Non'}"
+
 
 
 quetes_disponibles = [

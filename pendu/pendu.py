@@ -27,6 +27,7 @@ while str(motjoueur) is not len(mot):
     else:
         print("cette lettre n'est pas dans le mot")
         joueur.pvrestant()
+        print(motjoueur)
         if joueur.pv == 0:
             print("vous n'avez pas trouvé le mot")
             print("vous êtes mort pendu")
